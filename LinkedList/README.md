@@ -1,6 +1,6 @@
 # Linked List
 
-This section contains problems based on singly linked list operations and pointer manipulation.
+This section contains problems based on singly linked list operations and pointer manipulation
 
 ## 🧠 Key Concepts
 
