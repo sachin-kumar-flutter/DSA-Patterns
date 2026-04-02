@@ -1,7 +1,34 @@
 // Problem: Maximum Coins with Robber Neutralization
-// Approach: 3D Dynamic Programming
-// Author: Sachin
-// Notes: Classic grid DP with limited resource (k = 2 neutralizations)
+// Pattern: Grid DP + State Expansion (3D DP)
+// Difficulty: Hard
+
+// Key Idea:
+// We move from (0,0) to (m-1,n-1) collecting coins.
+// Some cells have robbers (negative values).
+// We can neutralize robbers in at most 2 cells.
+
+// DP State:
+// dp[i][j][k] = maximum coins collected reaching cell (i, j)
+//               using k neutralizations (k = 0, 1, 2)
+
+// Transition:
+// From each cell, we can move:
+// 1. Right → (i, j+1)
+// 2. Down  → (i+1, j)
+//
+// For each move:
+// - Take the cell value normally
+// - OR if it's negative and we have remaining neutralizations,
+//   ignore the loss and increment k
+
+// Final Answer:
+// max(dp[m-1][n-1][0], dp[m-1][n-1][1], dp[m-1][n-1][2])
+
+// Time Complexity: O(m * n * 3)
+// Space Complexity: O(m * n * 3)
+
+// Tags: DP, Grid DP, State Expansion, Optimization
+
 
 
 #include <bits/stdc++.h>
