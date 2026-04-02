@@ -1,17 +1,32 @@
 // Problem: Delete Operation for Two Strings
-// Pattern: String DP (LCS-based Transformation)
-//
+// Pattern: Subsequence DP (LCS-based Transformation)
+// Difficulty: Medium
+
 // Key Idea:
-// - Find the Longest Common Subsequence (LCS)
-// - Characters not in LCS must be deleted
-// - Minimum deletions =
-//     len(word1) + len(word2) - 2 * LCS
-//
+// We want to make both strings equal using minimum deletions.
+// The optimal strategy is to keep the Longest Common Subsequence (LCS)
+// and delete all other characters from both strings.
+
+// Formula:
+// Minimum deletions = len(word1) + len(word2) - 2 * LCS
+
+// DP State:
 // dp[i][j] = length of LCS between
 //            word1[0..i-1] and word2[0..j-1]
-//
+
+// Transition:
+// If characters match:
+//     dp[i][j] = 1 + dp[i-1][j-1]
+// Else:
+//     dp[i][j] = max(dp[i-1][j], dp[i][j-1])
+
+// Base Case:
+// dp[0][j] = 0, dp[i][0] = 0
+
 // Time Complexity: O(m * n)
 // Space Complexity: O(m * n)
+
+// Tags: DP, LCS, String, Subsequence
 
 class Solution {
 public:
