@@ -36,6 +36,14 @@ Hash tables allow:
 - Expand forward to count streak
 - Achieves **O(n)** time complexity
 
+### 3. Mirror Frequency Distance
+
+Count frequency using unordered_map
+- Find mirror character using transformation (a↔z, 0↔9)
+- Process each pair once using visited set
+- Add absolute difference of frequencies
+- Achieves O(n) time complexity
+
 ---
 
 ## 💡 Key Insight
