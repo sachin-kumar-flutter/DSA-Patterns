@@ -1,4 +1,4 @@
-# 🔹 Two Pointer Patterns
+# 👣 Two Pointer Patterns
 
 Welcome to the **Two Pointer Pattern** section 🚀
 One of the most powerful and frequently used techniques in DSA.
@@ -70,17 +70,17 @@ Whenever you see:
 
 Think immediately:
 
-> 🔥 Two pointers!
+> 👣 Two pointers!
 
 ---
 
 ## 📂 Structure
 
 ```bash
-two-pointer/
+two-pointers/
 │── two_pointer_intersection_sorted_arrays.cpp
 ```
 
 ---
 
-Keep grinding. Patterns > Problems 💯
+🔥 **Move smart, not more — that’s the power of two pointers**
