@@ -52,6 +52,11 @@ Prefix sum is a preprocessing technique that allows you to answer **range sum qu
 
 ---
 
+### 🔴 5. Subarrays Divisible by K
+- Pattern: Prefix Sum + HashMap + Modulo
+- 💡 Idea: If two prefix sums have the same remainder (mod k) → subarray sum is divisible by k
+- ⚠️ Trick: Handle negative modulo using (prefixSum % k + k) % k
+
 ## 🎯 Why Prefix Sum?
 
 🚀 Converts repeated O(n) work → **O(1)** queries  
