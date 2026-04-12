@@ -57,6 +57,11 @@ Prefix sum is a preprocessing technique that allows you to answer **range sum qu
 - 💡 Idea: If two prefix sums have the same remainder (mod k) → subarray sum is divisible by k
 - ⚠️ Trick: Handle negative modulo using (prefixSum % k + k) % k
 
+### 🟤 6. Count Subarrays With Score < K
+- Pattern: Sliding Window (Two Pointers)
+- 💡 Idea: Maintain a valid window where sum * length < k, shrink when invalid
+- 🔥 Insight: Number of subarrays ending at end = (end - start + 1)
+
 ## 🎯 Why Prefix Sum?
 
 🚀 Converts repeated O(n) work → **O(1)** queries  
