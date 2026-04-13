@@ -1,93 +1,191 @@
-# 📊 Prefix Sum
+# 📊 Prefix Sum Pattern
 
-This section contains problems that use **prefix sum techniques** to efficiently compute range queries and submatrix sums.
-
----
-
-## 🧠 What is Prefix Sum?
-
-Prefix sum is a preprocessing technique that allows you to answer **range sum queries in O(1)** time.
-
-### 📌 1D Array:
-- `prefix[i] = sum of elements from index 0 to i-1`
-
-### 📌 2D Matrix:
-- `prefix[i][j] = sum of submatrix from (0,0) to (i-1,j-1)`
+> "Precompute once, answer infinitely fast." ⚡
 
 ---
 
-## 🔑 Key Patterns Covered
+## 📌 What is Prefix Sum?
 
-✨ 1D Prefix Sum → Range sum queries  
-✨ 2D Prefix Sum → Submatrix queries  
-✨ Prefix Sum + HashMap → Subarray problems (sum = 0 / K)  
-✨ Prefix Sum + Binary Search → Optimization problems  
-✨ Prefix Sum + Sliding Window Insight → Hybrid problems  
+Prefix Sum is a technique where we **precompute cumulative sums** so that any subarray sum can be calculated in **O(1)** time.
+
+Instead of recalculating sums again and again:
+
+* ❌ Brute force → O(n²)
+* ✅ Prefix Sum → O(n)
+
+---
+
+## 🧠 Core Idea
+
+Create an array where:
+
+```cpp id="8c0kqf"
+prefix[i] = sum of elements from index 0 to i
+```
+
+Then any subarray sum from `L → R` is:
+
+```cpp id="k4wr8m"
+sum = prefix[R] - prefix[L - 1]
+```
+
+💡 That’s it. That one line saves you from nested loops 😎
+
+---
+
+## 🔁 Types of Prefix Sum Usage
+
+### 1️⃣ Basic Prefix Sum
+
+* Direct sum queries on subarrays
+
+---
+
+### 2️⃣ Prefix Sum + HashMap 🧠🔥
+
+* Used when:
+
+  * Counting subarrays
+  * Detecting patterns like sum = K, sum = 0
+
+---
+
+### 3️⃣ 2D Prefix Sum 🧩
+
+* For matrices
+* Fast area / square / rectangle sum queries
+
+---
+
+### 4️⃣ Prefix Sum + Binary Search 🚀
+
+* When answer depends on size/length
+* Combine fast sum queries + search space optimization
+
+---
+
+## ⚡ Time Complexity
+
+| Task               | Complexity |
+| ------------------ | ---------- |
+| Build Prefix Array | O(n)       |
+| Query Subarray Sum | O(1)       |
+| With HashMap       | O(n)       |
 
 ---
 
 ## 📂 Problems Included
 
-### 🟢 1. Count Subarrays with Sum = 0
-- Pattern: Prefix Sum + HashMap  
-- 💡 Idea: If same prefix sum appears again → subarray sum = 0  
+---
+
+### 🟢 Count Subarrays with Sum = 0
+
+**Pattern:** Prefix Sum + HashMap
+
+💡 **Idea:**
+If the same prefix sum appears again → the elements in between sum to **0**
+
+👉 Because:
+
+```cpp id="m4h6o0"
+prefix[j] - prefix[i] = 0
+```
 
 ---
 
-### 🔵 2. Count Subarrays with Sum = K
-- Pattern: Prefix Sum + HashMap  
-- 💡 Idea: Check if `(prefixSum - k)` exists  
+### 🔵 Count Subarrays with Sum = K
+
+**Pattern:** Prefix Sum + HashMap
+
+💡 **Idea:**
+Check if:
+
+```cpp id="x0k9d2"
+(prefixSum - k)
+```
+
+exists before
+
+👉 If yes → valid subarray found
 
 ---
 
-### 🟡 3. Largest Magic Square
-- Pattern: Prefix Sum + Validation  
-- 💡 Idea: Use prefix sums to quickly verify row & column sums  
+### 🟡 Largest Magic Square
+
+**Pattern:** Prefix Sum + Validation
+
+💡 **Idea:**
+Use prefix sums to quickly:
+
+* Check row sums
+* Check column sums
+
+👉 Avoid recomputing each time
 
 ---
 
-### 🟠 4. Maximum Side Length of Square ≤ Threshold
-- Pattern: Prefix Sum + Binary Search  
-- 💡 Idea: Use prefix sum for fast area calculation + binary search for size  
+### 🟠 Maximum Side Length of Square ≤ Threshold
+
+**Pattern:** Prefix Sum + Binary Search
+
+💡 **Idea:**
+
+* Use prefix sum → fast square sum calculation
+* Use binary search → find max valid size
+
+👉 Best combo: **Speed + Optimization**
 
 ---
 
-### 🔴 5. Subarrays Divisible by K
-- Pattern: Prefix Sum + HashMap + Modulo
-- 💡 Idea: If two prefix sums have the same remainder (mod k) → subarray sum is divisible by k
-- ⚠️ Trick: Handle negative modulo using (prefixSum % k + k) % k
+## 🔥 When to Use Prefix Sum?
 
-### 🟤 6. Count Subarrays With Score < K
-- Pattern: Sliding Window (Two Pointers)
-- 💡 Idea: Maintain a valid window where sum * length < k, shrink when invalid
-- 🔥 Insight: Number of subarrays ending at end = (end - start + 1)
+Ask yourself:
 
-## 🎯 Why Prefix Sum?
+✅ Need fast subarray sum queries?
+✅ Multiple range queries?
+✅ Counting subarrays with conditions?
+✅ Matrix / grid sum problems?
 
-🚀 Converts repeated O(n) work → **O(1)** queries  
-⚡ Reduces brute force complexity significantly  
-📦 Extremely useful in arrays, matrices & subarray problems  
+👉 Prefix Sum is your weapon ⚔️
 
 ---
 
-## 🧠 When to Use Prefix Sum?
+## 🧪 Pro Tips (Interview Gold 💎)
 
-Use it when:
-- 🔁 Multiple range sum queries  
-- 📊 Subarray / submatrix computations  
-- ⚠️ Negative numbers present (sliding window may fail)  
-- 🔍 Counting subarrays with specific sum  
+* Always think:
+
+  > "Can I precompute something to avoid repeated work?"
+
+* For counting problems:
+
+  * Use **HashMap with prefix sum**
+
+* For grids:
+
+  * Think **2D prefix sum immediately**
+
+* For optimization:
+
+  * Combine with **Binary Search**
 
 ---
 
-## ⚡ Key Takeaways
+## 🚀 Key Insight
 
-💡 Same prefix sum ⇒ subarray sum = 0  
-💡 `(prefixSum - k)` ⇒ subarray sum = k  
-💡 Always initialize `map[0] = 1` in hashmap problems  
+> Prefix Sum turns repeated work into instant answers.
+
+It’s not just an array —
+it’s **precomputation power** 💪
 
 ---
 
-## 🧩 Pro Tip
+## 🏁 Final Thought
 
-> If sliding window fails due to negative numbers → switch to Prefix Sum + HashMapto Prefix Sum + HashMap
+Sliding Window moves forward.
+Prefix Sum remembers the past.
+
+> And in DSA, memory is power. 🧠⚡
+
+---
+
+Happy Coding 💻🔥
