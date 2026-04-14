@@ -1,56 +1,86 @@
-/**
- * Definition for singly-linked list.
- * struct ListNode {
- *     int val;
- *     ListNode *next;
- *     ListNode() : val(0), next(nullptr) {}
- *     ListNode(int x) : val(x), next(nullptr) {}
- *     ListNode(int x, ListNode *next) : val(x), next(next) {}
- * };
- */
+/*
+Problem: Add Two Numbers Represented by Linked Lists
 
-// Problem: Add Two Numbers
-// Pattern: Linked List Construction with Carry
-//
-// Key Idea:
-// - Traverse both lists simultaneously
-// - Add corresponding digits along with carry
-// - Use a dummy node to simplify list construction
-//
-// Time Complexity: O(max(m, n))
-// Space Complexity: O(max(m, n)) for the result list
+Approach:
+1. Reverse both input linked lists so that we can add from least significant digit.
+2. Traverse both lists simultaneously:
+   - Add corresponding digits along with carry.
+   - Store result digit in a new list.
+3. Maintain carry for values >= 10.
+4. Reverse the result list to restore correct order.
+5. Remove leading zeros from the final answer.
+
+Time Complexity: O(max(n, m))
+Space Complexity: O(max(n, m))
+*/
+
+class Node {
+  public:
+    int data;
+    Node* next;
+    Node(int x) {
+        data = x;
+        next = NULL;
+    }
+};
 
 class Solution {
-public:
-    ListNode* addTwoNumbers(ListNode* l1, ListNode* l2) {
+  public:
+    
+    // Function to reverse a linked list
+    Node* reverse(Node* head){
+        Node* prev = NULL;
+        Node* nextNode = NULL;
+        
+        while(head){
+            nextNode = head->next;
+            head->next = prev;
+            prev = head;
+            head = nextNode;
+        }
+        return prev;
+    }
+    
+    Node* addTwoLists(Node* head1, Node* head2) {
+        
+        // Step 1: Reverse both lists
+        head1 = reverse(head1);
+        head2 = reverse(head2);
+        
+        Node* dummy = new Node(0);
+        Node* curr = dummy;
         int carry = 0;
-
-        // Dummy node to simplify result list creation
-        ListNode* dummy = new ListNode(0);
-        ListNode* curr = dummy;
-
-        while (l1 || l2 || carry) {
-            int sum = carry;
-
-            if (l1) {
-                sum += l1->val;
-                l1 = l1->next;
+        
+        // Step 2: Add digits
+        while(head1 || head2 || carry){
+            int sum = 0;
+            
+            if(head1){
+                sum += head1->data;
+                head1 = head1->next;
             }
-
-            if (l2) {
-                sum += l2->val;
-                l2 = l2->next;
+            
+            if(head2){
+                sum += head2->data;
+                head2 = head2->next;
             }
-
+            
+            sum += carry;
+            
+            // Step 3: Update carry and result digit
             carry = sum / 10;
-
-            // Create new node with digit value
-            curr->next = new ListNode(sum % 10);
+            curr->next = new Node(sum % 10);
             curr = curr->next;
         }
-
-        ListNode* result = dummy->next;
-        delete dummy; // free dummy node
+        
+        // Step 4: Reverse result
+        Node* result = reverse(dummy->next);
+        
+        // Step 5: Remove leading zeros
+        while(result && result->data == 0 && result->next){
+            result = result->next;
+        }
+        
         return result;
     }
 };
