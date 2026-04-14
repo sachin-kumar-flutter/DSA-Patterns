@@ -13,19 +13,20 @@ A curated collection of Data Structures and Algorithms problems organized by **p
 
 ---
 
-## 📂 Repository Structure
+## 🧭 Topics Covered
 
-* 📊 Arrays
-* 🔁 Sliding Window
-* 👣 Two Pointers
-* 🌳 Trees
-* 🔗 Graphs
-* 🧠 Dynamic Programming
-* 💰 Greedy
-* 🪵 Stack & Queue
-* ⛰️ Heap
-* 🔢 Bit Manipulation
-* ➗ Math
+| Topic | Description |
+|------|------------|
+| 📦 Arrays | Core array problems & patterns |
+| 🔍 Binary Search | Search space optimization |
+| 🧠 Dynamic Programming | Classic + advanced DP |
+| 🌐 Graphs | BFS, DFS, shortest paths |
+| 🌲 Trees | Traversals, recursion, BST |
+| 🪟 Sliding Window | Subarray optimization |
+| ➕ Prefix Sum | Range query optimization |
+| 🔗 Linked List | Pointer manipulation |
+| 📚 Stack | Monotonic stack & problems |
+| 🎯 Greedy | Local optimal strategies |
 
 ---
 
@@ -68,7 +69,6 @@ Each solution includes:
 * B.Tech CSE Student
 * Solved **700+ DSA problems**
 * Strong foundation in **Mathematics & Analytical Thinking**
-* Preparing for **technical interviews and GATE**
 
 ---
 
@@ -82,16 +82,4 @@ This repository focuses on:
 * ✅ Pattern-based learning
 * ✅ Interview-oriented preparation
 
----
 
-## ⭐ Future Goals
-
-* Expand pattern coverage
-* Add more advanced problems (DP, Graphs, Greedy)
-* Improve explanations and intuition notes
-* Build a complete revision-friendly DSA system
-
----
-
-🔥 **Master patterns → Crack interviews with confidence**
-asing only important and non-trivial problems relevant for coding interviews.
