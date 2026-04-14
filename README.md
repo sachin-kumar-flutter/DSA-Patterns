@@ -1,3 +1,8 @@
+![Language](https://img.shields.io/badge/Language-C++-blue)
+![Focus](https://img.shields.io/badge/Focus-DSA-green)
+![Status](https://img.shields.io/badge/Progress-Active-brightgreen)
+![Problems](https://img.shields.io/badge/Problems-600+-orange)
+
 # 🚀 DSA Patterns Repository
 
 A curated collection of Data Structures and Algorithms problems organized by **patterns**, focused on building deep problem-solving intuition and interview readiness.
