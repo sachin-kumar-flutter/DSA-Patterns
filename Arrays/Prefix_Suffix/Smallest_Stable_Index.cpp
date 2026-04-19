@@ -15,14 +15,8 @@ An index i is called stable if its instability score is <= k.
 
 Return the smallest stable index. If no such index exists, return -1.
 
-Approach:
-- Use prefix array to store maximum till index i
-- Use suffix array to store minimum from index i to end
-- Check for smallest i such that:
-      prefix_max[i] - suffix_min[i] <= k
-
 Time Complexity: O(n)
-Space Complexity: O(n)
+Space Complexity: O(n) → reduced (only one array instead of two)
 */
 
 class Solution {
@@ -30,27 +24,28 @@ public:
     int firstStableIndex(vector<int>& nums, int k) {
         int n = nums.size();
 
-        vector<int> maximum(n), minimum(n);
+        // Step 1: suffix min
+        vector<int> suffixMin(n);
+        suffixMin[n - 1] = nums[n - 1];
 
-        // prefix max
-        maximum[0] = nums[0];
-        for (int i = 1; i < n; i++) {
-            maximum[i] = max(maximum[i - 1], nums[i]);
-        }
-
-        // suffix min
-        minimum[n - 1] = nums[n - 1];
         for (int i = n - 2; i >= 0; i--) {
-            minimum[i] = min(minimum[i + 1], nums[i]);
+            suffixMin[i] = min(suffixMin[i + 1], nums[i]);
         }
 
-        // find smallest stable index
+        // Step 2: traverse + maintain prefix max
+        int prefixMax = nums[0];
+
         for (int i = 0; i < n; i++) {
-            if (maximum[i] - minimum[i] <= k) {
+            prefixMax = max(prefixMax, nums[i]);
+
+            if (prefixMax - suffixMin[i] <= k) {
                 return i;
             }
         }
 
+        return -1;
+    }
+};
         return -1;
     }
 };
