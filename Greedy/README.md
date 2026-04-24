@@ -91,6 +91,16 @@ Look for these signals:
 * **Idea:** Check fixed seating blocks
 * **Insight:** Limited valid configurations simplify decisions
 
+
+
+### 📌 Maximum Subarray Sum (Kadane’s Algorithm)
+
+* **Pattern:** Greedy (Dynamic Decision Making)
+* **Idea:** Extend current subarray or restart from current element
+* **Insight:** A negative prefix can never contribute to a maximum sum
+* **Core Formula:**
+  ```cpp
+  curr = max(arr[i], curr + arr[i]);
 ---
 
 ## 🎯 Why These Problems?
