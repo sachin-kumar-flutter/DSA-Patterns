@@ -1,0 +1,36 @@
+class Solution {
+  public:
+    int getMinDiff(vector<int> &arr, int k) {
+        int n = arr.size();
+        
+        // Step 1: Sort the array
+        // This helps us reason about min and max easily
+        sort(arr.begin(), arr.end());
+        
+        // Step 2: Initial difference (no modification case)
+        int ans = arr[n - 1] - arr[0];
+        
+        // Step 3: Try all possible partitions
+        // Idea:
+        // Increase elements [0..i-1] by k
+        // Decrease elements [i..n-1] by k
+        for (int i = 1; i < n; i++) {
+            
+            // If decreasing makes value negative, skip (invalid case)
+            if (arr[i] - k < 0) continue;
+            
+            // Minimum height after modification:
+            // Either smallest increased OR current decreased
+            int minH = min(arr[i] - k, arr[0] + k);
+            
+            // Maximum height after modification:
+            // Either previous increased OR largest decreased
+            int maxH = max(arr[i - 1] + k, arr[n - 1] - k);
+            
+            // Update answer with minimum difference found
+            ans = min(ans, maxH - minH);
+        }
+        
+        return ans;
+    }
+};
