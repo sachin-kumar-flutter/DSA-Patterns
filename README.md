@@ -1,138 +1,92 @@
-![Language](https://img.shields.io/badge/Language-C++-blue)
-![Focus](https://img.shields.io/badge/Focus-DSA-green)
-![Status](https://img.shields.io/badge/Progress-Active-brightgreen)
-![Problems](https://img.shields.io/badge/Problems-700+-orange)
-
 # 🚀 DSA Patterns Repository
 
-> Consistency + Pattern Recognition = Mastery
+A structured and well-organized collection of Data Structures and Algorithms problems, categorized by **fundamentals, patterns, and advanced concepts**.
 
-A curated collection of Data Structures and Algorithms problems organized by **patterns**, focused on building deep problem-solving intuition and interview readiness.
-
----
-
-## 📊 Progress Tracker
-
-- 📌 Total Problems Solved: **700+**
-- 🧠 Core Topics Covered: Arrays, DP, Graphs, Trees, etc.
-- 🔥 Current Focus: Advanced DP & Graph Optimization
-- 🎯 Goal: Crack top product-based companies
+This repository is designed to build strong problem-solving skills for **coding interviews** and **GATE preparation**.
 
 ---
 
-## 🧭 Topics Covered
+## 📚 Repository Structure
 
-| Topic | Description |
-|------|------------|
-| 📦 [Arrays](./Arrays) | Core array problems & patterns |
-| 🔍 [Binary Search](./Binary_Search) | Search space optimization |
-| 🧠 [Dynamic Programming](./Dynamic_Programming) | Classic + advanced DP |
-| 🌐 [Graphs](./Graphs) | BFS, DFS, shortest paths |
-| 🌲 [Trees](./Trees) | Traversals, recursion, BST |
-| 🪟 [Sliding Window](./Sliding_Window) | Subarray optimization |
-| ➕ [Prefix Sum](./Prefix_Sum) | Range query optimization |
-| 🔗 [Linked List](./Linked_List) | Pointer manipulation |
-| 📚 [Stack](./Stack) | Monotonic stack & problems |
-| 🎯 [Greedy](./Greedy) | Local optimal strategies |
+### 🟢 Foundations
+
+Core data structures and their implementations:
+
+* Arrays
+* Linked List
+* Stack & Queue
+* Heap
+* Trees
+
+> Focus: Understanding the building blocks of all algorithms.
 
 ---
 
-## 🧩 Pattern-Based Learning
+### 🟡 Patterns
 
-Instead of solving problems randomly, this repository focuses on **recognizing and mastering patterns**:
+Common problem-solving techniques used across multiple problems:
 
-- 🪟 Sliding Window  
-- ➕ Prefix Sum  
-- 🔁 Two Pointers  
-- 🔍 Binary Search on Answer  
-- 🔄 Cycle Detection  
-- 🎯 Greedy  
-- 🧠 Dynamic Programming  
+* Sliding Window
+* Two Pointers
+* Prefix Sum
+* Binary Search
+* Hashing
+* Monotonic Stack
+* Recursion & Backtracking
+* Bit Manipulation
+* Divide & Conquer
+
+> Focus: Recognizing patterns to solve problems efficiently.
+
+---
+
+### 🔴 Advanced
+
+Complex algorithms and deeper concepts:
+
+* Dynamic Programming
+* Graph Algorithms
+* Greedy Techniques
+* String Algorithms (KMP, Z, Rabin-Karp)
+* Segment Trees
+* Disjoint Set (Union-Find)
+* Tries
+
+> Focus: Mastering high-level concepts frequently asked in top interviews.
 
 ---
 
 ## 🧠 Approach
 
-Each problem is solved with a **pattern-first mindset**:
+Each problem is documented with:
 
-- 🔍 Identify the underlying pattern  
-- 💡 Build intuition before coding  
-- ⚡ Write optimized and clean solutions  
-
-Each solution includes:
-
-- Problem explanation  
-- Pattern used  
-- Key idea / intuition  
-- Time & Space Complexity  
+* ✔ Clear problem statement
+* ✔ Approach explanation
+* ✔ Time & Space complexity
+* ✔ Clean and optimized C++ implementation
 
 ---
 
-## 🔥 Highlight Problems
+## 🎯 Goal
 
-- 📈 Increasing Subarray Count (Monotonic Segments)  
-- 🧩 Longest Common Subsequence (DP)  
-- 🎯 Maximum Dot Product of Subsequences  
-- 🏦 Advanced Grid DP Problems  
-- 🪟 Sliding Window Optimization Patterns  
+* Build strong DSA fundamentals
+* Master problem-solving patterns
+* Prepare for technical interviews and competitive exams
 
 ---
 
-## ⚡ Key Features of This Repo
+## ⚙️ Tech Stack
 
-- ✅ Clean and optimized C++ solutions  
-- ✅ Multiple approaches for important problems  
-- ✅ In-place and space-optimized techniques  
-- ✅ Structured topic-wise organization  
-- ✅ Pattern-focused learning approach  
+* Language: **C++**
+* Focus: **Efficiency, clarity, and pattern recognition**
 
 ---
 
-## 🛠️ Tech Stack
+## 📌 Note
 
-- 💻 Language: **C++**
-- 🧠 Focus: DSA, Problem Solving, Optimization
-
----
-
-## 👨‍💻 About Me
-
-- 🎓 B.Tech CSE Student  
-- 🧠 Solved **700+ DSA problems**  
-- 🔢 Strong background in Mathematics & Analytical Thinking  
-- 🚀 Preparing for top product-based companies  
+This repository is continuously updated as part of my learning journey.
+The aim is not just to solve problems, but to **understand and organize them in a structured way**.
 
 ---
 
-## 💡 Why This Repo?
-
-Most people solve problems randomly.
-
-This repo focuses on:
-- ✅ Pattern-based learning  
-- ✅ Deep understanding  
-- ✅ Interview-oriented preparation  
-
-Because:
-
-> "Interviews don’t test memory. They test thinking."
-
----
-
-## 🎯 Philosophy
-
-> "Don’t solve problems randomly. Solve them by pattern."
-
----
-
-## ⭐ Support
-
-If you find this repository helpful:
-
-👉 Star the repo  
-👉 Fork it for your own learning  
-👉 Share with fellow learners  
-
----
-
-🔥 Keep grinding. Consistency always wins.
+⭐ If you find this helpful, feel free to explore and learn along!
