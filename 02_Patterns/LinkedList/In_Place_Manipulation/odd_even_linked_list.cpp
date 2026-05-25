@@ -32,22 +32,15 @@ public:
 
         ListNode* evenHead = evenPointer;
 
-        while(evenPointer &&
-              evenPointer->next) {
+        while(evenPointer && evenPointer->next) {
 
             // Connect odd nodes
-            oddPointer->next =
-                oddPointer->next->next;
-
-            oddPointer =
-                oddPointer->next;
+            oddPointer->next = oddPointer->next->next;
+            oddPointer = oddPointer->next;
 
             // Connect even nodes
-            evenPointer->next =
-                evenPointer->next->next;
-
-            evenPointer =
-                evenPointer->next;
+            evenPointer->next = evenPointer->next->next;
+            evenPointer = evenPointer->next;
         }
 
         // Attach even list after odd list
