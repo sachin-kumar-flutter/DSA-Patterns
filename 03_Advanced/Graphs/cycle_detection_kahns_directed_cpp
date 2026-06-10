@@ -1,0 +1,64 @@
+
+
+/*
+-------------------------------------
+🧩 Problem: Cycle Detection in Directed Graph
+📂 Category: Graph / Cycle Detection
+🧠 Concept:
+- Kahn's Algorithm
+- Topological Sort
+- Indegree Tracking
+
+⚡ Approach:
+- Compute indegree of every node
+- Push all nodes with indegree 0
+  into the queue
+- Process nodes level by level
+- Reduce indegree of neighbors
+- Count processed nodes
+- If all nodes are processed,
+  graph is acyclic
+- Otherwise, a cycle exists
+
+⏱️ Time Complexity: O(V + E)
+💾 Space Complexity: O(V)
+
+🎯 Key Idea:
+- A cycle prevents some nodes
+  from ever reaching indegree 0
+
+-------------------------------------
+*/
+
+
+class Solution {
+  public:
+    bool isCyclic(int V, vector<vector<int>> &edges) {
+        // code here
+        vector<vector<int>> graph(V);
+        vector<int> indegree(V,0);
+        
+        for(auto &e:edges) {
+            graph[e[0]].push_back(e[1]);
+            indegree[e[1]]++;
+        }
+        
+        queue<int> q;
+        for(int i=0;i<V;i++) if(indegree[i]==0) q.push(i);
+        
+        vector<int> ans;
+        
+        while(!q.empty()){
+            int node=q.front();
+            q.pop();
+            ans.push_back(node);
+            for(int neighbour:graph[node]){
+                indegree[neighbour]--;
+                
+                if(indegree[neighbour]==0) q.push(neighbour);
+            }
+        }
+        
+        return ans.size()==V;
+    }
+};
