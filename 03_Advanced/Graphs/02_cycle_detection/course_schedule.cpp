@@ -17,53 +17,9 @@
 //      node's state during the current recursion path.
 
 // ============================================================
-// Approach 1: BFS - Kahn's Algorithm (Topological Sort)
-// Time: O(V + E), Space: O(V + E)
-// ============================================================
-
-class SolutionBFS {
-public:
-    bool canFinish(int numCourses, vector<vector<int>>& prerequisites) {
-        vector<vector<int>> graph(numCourses);
-        vector<int> indegree(numCourses, 0);
-
-        // build graph: edge from prerequisite -> course that depends on it
-        // (p[1] must be taken before p[0], so p[1] -> p[0])
-        for (auto &p : prerequisites) {
-            graph[p[1]].push_back(p[0]);
-            indegree[p[0]]++; // course p[0] now has one more prerequisite
-        }
-
-        queue<int> q;
-        // start with all courses that have NO prerequisites - they can be taken immediately
-        for (int i = 0; i < numCourses; i++) {
-            if (indegree[i] == 0) q.push(i);
-        }
-
-        vector<int> topo; // tracks the order in which courses get "unlocked"
-
-        while (!q.empty()) {
-            int node = q.front();
-            q.pop();
-            topo.push_back(node);
-
-            // taking `node` removes it as a blocker for its dependent courses
-            for (int neighbour : graph[node]) {
-                if (--indegree[neighbour] == 0) {
-                    // neighbour's last prerequisite just got satisfied -> can be taken now
-                    q.push(neighbour);
-                }
-            }
-        }
-
-        // if topo includes every course, no cycle existed and all courses are completable.
-        // if some courses never reached indegree 0, they're stuck in a cycle -> impossible.
-        return topo.size() == numCourses;
-    }
-};
 
 // ============================================================
-// Approach 2: DFS - 3-Color Cycle Detection
+// Approach : DFS - 3-Color Cycle Detection
 // Time: O(V + E), Space: O(V + E)
 //
 // Color states:
