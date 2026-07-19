@@ -1,168 +1,65 @@
 # 🚀 Advanced Backtracking
 
-> “Simple recursion generates possibilities.
-> Advanced backtracking eliminates impossibilities.” ⚡
+> *"Simple recursion generates possibilities. Advanced backtracking eliminates impossibilities."* ⚡
 
-This section contains advanced backtracking problems that involve:
+Backtracking is DFS with a conscience — it explores a choice, and the moment it senses a dead end, it **undoes itself and tries again**. No brute force, no wasted paths, just smart elimination. 🧠
 
-* heavy pruning 🌳
-* constraint checking 🎯
-* grid/state exploration 🔍
-* optimized recursion ⚡
+This folder is a curated set of problems that go beyond textbook recursion into real constraint-satisfaction territory: heavy pruning 🌳, constraint checking 🧩, and state restoration ♻️.
 
-These problems are less about generating all outcomes and more about:
+---
 
-```text id="q5h0rx"
-searching intelligently
+## 📂 What's Inside
+
+| # | Problem | Core Idea | Pruning Technique | Time Complexity |
+|---|---------|-----------|-------------------|------------------|
+| 1️⃣ | [`nQueens.cpp`](./nQueens.cpp) | Place N queens with zero attacks | Diagonal bitmask hashing 🎯 | `O(N!)` |
+| 2️⃣ | [`sudoku_solver.cpp`](./sudoku_solver.cpp) | Fill 9×9 grid respecting row/col/box rules | Constraint validity check 🔍 | `O(9^m)` |
+| 3️⃣ | [`word_search.cpp`](./word_search.cpp) | Find a word hidden in a grid | Grid DFS + visited marking 🧵 | `O(N·M·4^L)` |
+
+---
+
+## 🧩 Why These Problems?
+
+Each one teaches a different flavor of backtracking:
+
+- **N-Queens** 👑 → row-by-row decision making, where the trick is representing constraints (columns + both diagonals) as compact bitmasks instead of brute-force scanning.
+- **Sudoku Solver** 🔢 → cell-by-cell decision making with three overlapping constraints (row, column, box) that must all hold simultaneously.
+- **Word Search** 🔤 → path-based backtracking on a grid, where "undoing a choice" means unmarking a visited cell so other paths can reuse it.
+
+Different shapes, same skeleton:
+
+```
+solve(state):
+    if goal reached → done ✅
+    for each choice:
+        if valid:
+            make choice 🟢
+            if solve(next state) → propagate success
+            undo choice 🔴
+    return false / continue
 ```
 
 ---
 
-# 📂 Problems Included
+## 🛠️ Tech Stack
 
-```bash id="4bplsh"
-Advanced_Backtracking/
-├── n_queens.cpp
-├── word_search.cpp
-```
+- Language: **C++**
+- Paradigm: Recursive backtracking + bitmask optimization
+- Focus: Correctness first, then pruning for performance ⚙️
 
 ---
 
-# 🔥 Core Patterns Covered
+## 📈 Progress Tracker
 
-| Problem     | Key Idea                      |
-| ----------- | ----------------------------- |
-| N-Queens    | Constraint-based board search |
-| Word Search | Grid DFS + backtracking       |
-
----
-
-# 🧠 Important Concepts
-
-## 🎯 Constraint Pruning
-
-Avoid invalid states before exploring deeper recursion.
-
-Used in:
-
-* N-Queens
+- [x] N-Queens (optimized with diagonal hashing)
+- [x] Sudoku Solver
+- [x] Word Search
+- [ ] Rat in a Maze 🐭
+- [ ] Combination Sum 🧮
+- [ ] Palindrome Partitioning ✂️
 
 ---
 
-## 🌐 Grid Backtracking
+### 🔗 Part of the [DSA-Patterns](../../) repository
 
-Move through matrix state-space recursively while tracking visited cells.
-
-Used in:
-
-* Word Search
-
----
-
-# ⚙️ Standard Backtracking Flow
-
-```cpp id="tvf2a4"
-choose
-→ validate
-→ recurse
-→ backtrack
-```
-
----
-
-# 💡 The Biggest Insight
-
-Advanced backtracking is NOT:
-
-```text id="ddg3so"
-try every possibility blindly
-```
-
-It is:
-
-```text id="o9j2x4"
-eliminate impossible paths early
-```
-
-That pruning is what makes difficult problems solvable.
-
----
-
-# 🔥 N-Queens Highlights
-
-Concepts used:
-
-* column hashing
-* diagonal hashing
-* board-state pruning
-
-Key observation:
-
-```text id="vbx4sx"
-one invalid queen placement
-can invalidate the entire branch
-```
-
----
-
-# 🔥 Word Search Highlights
-
-Concepts used:
-
-* DFS on grids
-* visited marking
-* path exploration
-
-Key observation:
-
-```text id="l2mly7"
-cells cannot be reused
-within the same path
-```
-
----
-
-# ⚠️ Common Mistakes
-
-* Forgetting to backtrack state ❌
-* Revisiting cells ❌
-* Poor pruning logic ❌
-* Rechecking entire board repeatedly ❌
-
----
-
-# 🧠 What Advanced Backtracking Really Teaches
-
-These problems improve:
-
-* recursive state management 🌳
-* pruning strategies ⚡
-* search optimization 🔍
-* grid/tree exploration 🎯
-
----
-
-# 🚀 Interview Insight
-
-The hardest part of advanced backtracking is usually:
-
-```text id="g07k0v"
-“What information should be tracked?”
-```
-
-Once state tracking becomes clear,
-the recursion often becomes straightforward.
-
----
-
-# 🏁 Final Thought
-
-Advanced backtracking is where recursion starts feeling like:
-
-# 🔥 intelligent search instead of brute force.
-
-That transition is one of the biggest milestones in DSA.
-
----
-
-⭐ If this helped, consider starring the repo!
+⭐ If this helped you understand backtracking better, consider starring the repo!
